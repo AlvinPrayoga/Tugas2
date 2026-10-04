@@ -1,0 +1,65 @@
+import 'dart:io';
+import 'dart:math';
+
+void main() {
+  // 1
+  stdout.write("Masukkan nilai (0-100): ");
+  int nilai1 = int.parse(stdin.readLineSync()!);
+
+  String nilai2;
+
+  if (nilai1 >= 85 && nilai1 <= 100) {
+    nilai2 = "A";
+  } else if (nilai1 >= 70 && nilai1 <= 84) {
+    nilai2 = "B";
+  } else if (nilai1 >= 55 && nilai1 <= 69) {
+    nilai2 = "C";
+  } else {
+    nilai2 = "D";
+  }
+
+  print("Nilai huruf: $nilai2");
+  // 2
+  for (int i = 1; i <= 20; i++) {
+    if (i % 3 == 0 && i % 5 == 0) {
+      print("FizzBuzz");
+    } else if (i % 5 == 0) {
+      print("Buzz");
+    } else if (i % 3 == 0) {
+      print("Fizz");
+    } else {
+      print(i);
+    }
+  }
+
+  //3
+  List<int> angka = [];
+  for (int i = 1; i <= 5; i++) {
+    stdout.write("Masukkan Angka Anda:");
+    int input = int.parse(stdin.readLineSync()!);
+    angka.add(input);
+  }
+
+  int jumlah = angka.reduce((a, b) => a + b);
+
+  double rataRata = jumlah / angka.length;
+
+  int maksimum = angka.reduce((a, b) => a > b ? a : b);
+  int minimum = angka.reduce((a, b) => a < b ? a : b);
+  print("Jumlah: $jumlah");
+  print("Rata-rata: $rataRata");
+  print("Maksimum: $maksimum");
+  print("Minimum: $minimum");
+
+  var random = Random();
+  int angkaRandom = random.nextInt(5) + 1;
+  
+  stdout.write("Tebak angka antara 1 hingga 5: ");
+  int input = int.parse(stdin.readLineSync()!);
+
+  if (input == angkaRandom) {
+    print('ur guess is right');
+  } else {
+    print('ur guess is wrong, the correct number is $angkaRandom');
+  }
+}
